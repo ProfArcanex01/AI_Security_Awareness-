@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy-900: #0a1628;
+  --navy-800: #111d33;
+  --navy-700: #1a2d4a;
+  --gold-400: #d4af37;
+  --gold-500: #c9a227;
+  --coral-500: #ff6b6b;
+  --teal-500: #20c997;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
+  
+  body {
+    background: var(--navy-900);
+    color: white;
+    overflow-x: hidden;
+    font-family: var(--font-dm-sans), system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair), Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: var(--gold-400);
+    color: var(--navy-900);
+  }
+}
+
+@layer components {
+  .slide {
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 2rem;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide-dark {
+    background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 50%, var(--navy-700) 100%);
+  }
+
+  .slide-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  .slide-danger {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  }
+
+  .card-glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.5rem;
+  }
+
+  .card-solid {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 60px -15px rgba(212, 175, 55, 0.4);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 60px -15px rgba(102, 126, 234, 0.5);
+  }
+
+  .glow-red {
+    box-shadow: 0 0 60px -15px rgba(255, 107, 107, 0.4);
+  }
+
+  .icon-box {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    font-size: 1.75rem;
+    flex-shrink: 0;
+  }
+
+  .number-badge {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+
+  .divider-gold {
+    height: 3px;
+    width: 80px;
+    background: linear-gradient(90deg, transparent, var(--gold-400), transparent);
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  .animate-in {
+    animation: fadeSlideIn 0.8s ease-out forwards;
+  }
+
+  .animate-in-delay-1 { animation-delay: 0.1s; opacity: 0; }
+  .animate-in-delay-2 { animation-delay: 0.2s; opacity: 0; }
+  .animate-in-delay-3 { animation-delay: 0.3s; opacity: 0; }
+  .animate-in-delay-4 { animation-delay: 0.4s; opacity: 0; }
+  .animate-in-delay-5 { animation-delay: 0.5s; opacity: 0; }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulseSlow 4s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(1deg); }
+}
+
+@keyframes pulseSlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-modal-in {
+  animation: modalIn 0.2s ease-out forwards;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--navy-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-400);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-500);
+}
