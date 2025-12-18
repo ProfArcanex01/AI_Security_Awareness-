@@ -287,8 +287,12 @@ const slides = [
 
           <div className="divider-gold mx-auto my-8" />
 
-          <p className="text-xl md:text-2xl text-white/60 font-light tracking-wide">
+          <p className="text-xl md:text-2xl text-white/60 font-light tracking-wide mb-6">
             A Cyber Awareness Session for Staff
+          </p>
+
+          <p className="text-lg md:text-xl text-amber-400/80 font-medium tracking-wide">
+            Presented by Philemon Hini
           </p>
 
           <div className="mt-16 flex items-center justify-center gap-2 text-white/30 text-sm">
